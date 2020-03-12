@@ -81,7 +81,7 @@ if __name__ == '__main__':
         data = r.json()
         # print('r', r)
         # print('status', r.status_code)
-        if r.status_code == 200:
+        if r.status_code == 201:
             print('The post request was successful')
         else:
             print('The post request failed')
