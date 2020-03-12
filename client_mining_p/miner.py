@@ -78,7 +78,13 @@ if __name__ == '__main__':
         
         r = requests.post(url=node + "/mine", json=post_data)
         data = r.json()
-        # print(r.status)
+        # print('r', r)
+        # print('status', r.status_code)
+        if r.status_code == 200:
+            print('The post request was successful')
+        else:
+            print('The post request failed')
+        
 
         # TODO: If the server responds with a 'message' 'New Block Forged'
         # add 1 to the number of coins mined and print it.  Otherwise,
