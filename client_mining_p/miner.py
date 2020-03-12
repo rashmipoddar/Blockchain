@@ -71,6 +71,7 @@ if __name__ == '__main__':
         block = data['last_block']
         # print('block', block)
         new_proof = proof_of_work(block)
+        print('Proof found: ', new_proof)
         # print('New proof', new_proof)
 
         # When found, POST it to the server {"proof": new_proof, "id": id}

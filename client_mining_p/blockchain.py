@@ -123,12 +123,15 @@ def mine():
       string_block = json.dumps(blockchain.last_block, sort_keys=True)
       validity = blockchain.valid_proof(string_block, data['proof'])
       if validity:
+        # Forge the new Block by adding it to the chain with the proof
+        previous_hash = blockchain.hash(blockchain.last_block)
+        block = blockchain.new_block(data['proof'], previous_hash)
         response = {
           'message': 'New Block Forged'
         }
       else: 
         response = {
-          'message': 'The proof is not valid'
+          'message': 'The proof is not valid or late'
         } 
       return jsonify(response), 200
     else:
